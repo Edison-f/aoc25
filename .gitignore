@@ -2,7 +2,8 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-.iml
+*.iml
+.idea/
 
 ### Eclipse ###
 .apt_generated
@@ -30,4 +31,4 @@ bin/
 .DS_Store
 
 ### AoC inputs ###
-.txt
+*.txt
