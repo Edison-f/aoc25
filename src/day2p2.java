@@ -11,19 +11,15 @@ public class day2p2 {
         HashSet<Long> set = new HashSet<>();
         long l = 1;
         long n;
-        try {
-            while (l < 100000) {
-                n = l;
-                try {
-                    while (n < 9999999999L) {
-                        n = Long.parseLong(n + Long.toString(l));
-                        set.add(n);
-                    }
-                } catch (Exception e) {
+        while (l < 100000) {
+            n = l;
+            try {
+                while (n < 9999999999L) {
+                    n = Long.parseLong(n + Long.toString(l));
+                    set.add(n);
                 }
-                l++;
-            }
-        } catch (Exception ignored) {
+            } catch (Exception e) { }
+            l++;
         }
         for (String range : input) {
             String[] split = range.split("-");
