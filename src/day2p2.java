@@ -18,7 +18,8 @@ public class day2p2 {
                     n = Long.parseLong(n + Long.toString(l));
                     set.add(n);
                 }
-            } catch (Exception e) { }
+            } catch (Exception _) {
+            }
             l++;
         }
         for (String range : input) {
