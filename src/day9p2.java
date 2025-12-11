@@ -5,13 +5,13 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class day9p2 { // low 4546989
+public class day9p2 {
 
     public static long area(long[] p1, long[] p2) {
         return (Math.abs(p1[0] - p2[0]) + 1) * (Math.abs(p1[1] - p2[1]) + 1);
     }
 
-    public static int[] state(long[] p1, long[] p2, long[] next) {
+    public static int[] state(long[] p1, long[] p2, long[] next) { // too lazy to convert to a ternary
         int horizontal = 0;
         int vertical = 0;
         long x1 = p1[0];
@@ -58,10 +58,7 @@ public class day9p2 { // low 4546989
         for (int i = Math.min(p1, p2) + 1; i < Math.max(p1, p2); i++) {
             int[] state = state(tiles.get(p1), tiles.get(p2), tiles.get(i));
             set.add(hash(state));
-            if (badState(prev, state)) {
-                return true;
-            }
-            if (state[0] == 0 && state[1] == 0) {
+            if (badState(prev, state) || state[0] == 0 && state[1] == 0) {
                 return true;
             }
             prev = state;
@@ -70,10 +67,7 @@ public class day9p2 { // low 4546989
         for (int i = (Math.max(p1, p2) + 1) % tiles.size(); i != Math.min(p1, p2); i = (i + 1) % tiles.size()) {
             int[] state = state(tiles.get(p1), tiles.get(p2), tiles.get(i));
             set.add(hash(state));
-            if (badState(prev, state)) {
-                return true;
-            }
-            if (state[0] == 0 && state[1] == 0) {
+            if (badState(prev, state) || state[0] == 0 && state[1] == 0) {
                 return true;
             }
             prev = state;
